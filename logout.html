@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout - PawMatch</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add futuristic fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Add FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div id="logout-screen">
+        <div class="logout-content">
+            <h2>Logging Out...</h2>
+            <p>Thank you for using PawMatch. You'll be redirected to the login page in <span id="countdown">5</span> seconds.</p>
+            <div class="loading-animation">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Countdown timer
+        let countdown = 5;
+        const countdownElement = document.getElementById('countdown');
+
+        const timer = setInterval(() => {
+            countdown--;
+            countdownElement.textContent = countdown;
+
+            if (countdown === 0) {
+                clearInterval(timer);
+                window.location.href = "login.html"; // Redirect to login page
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

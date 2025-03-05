@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawMatch - Futuristic Pet Adoption</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Add futuristic fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Add FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to <span class="futuristic-text">PawMatch</span> 🚀🐾</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="adopt.html">Adopt</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <!-- Hero Section -->
+        <section id="hero">
+            <div class="hero-content">
+                <h2>Find Your Perfect Pet Companion</h2>
+                <p>Matching pets with loving owners in a futuristic way.</p>
+                <button onclick="window.location.href='login.html'">Login <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="hero-image">
+                <img src="images/futuristic-pet.png" alt="Futuristic Pet" class="floating">
+            </div>
+        </section>
+
+        <!-- Parallax Section -->
+        <section id="parallax">
+            <div class="parallax-content">
+                <h2>Join the Future of Pet Adoption</h2>
+                <p>Experience seamless adoption with cutting-edge technology.</p>
+            </div>
+        </section>
+
+        <!-- Pet Gallery -->
+        <section id="pet-gallery">
+            <h2>Meet Our Lovely Pets</h2>
+            <div class="gallery-grid">
+                <div class="pet-card">
+                    <img src="images/pet1.jpg" alt="Pet 1">
+                    <h3>Buddy</h3>
+                    <p>Friendly and playful dog.</p>
+                </div>
+                <div class="pet-card">
+                    <img src="images/pet2.jpg" alt="Pet 2">
+                    <h3>Whiskers</h3>
+                    <p>Curious and loving cat.</p>
+                </div>
+                <div class="pet-card">
+                    <img src="images/pet3.jpg" alt="Pet 3">
+                    <h3>Max</h3>
+                    <p>Energetic and loyal dog.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Dashboard -->
+        <section id="stats">
+            <h2>Our Impact</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <i class="fas fa-paw"></i>
+                    <h3>500+</h3>
+                    <p>Pets Adopted</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>200+</h3>
+                    <p>Happy Families</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-globe"></i>
+                    <h3>10+</h3>
+                    <p>Countries Reached</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Live Chat Widget -->
+        <div id="chat-widget">
+            <button id="chat-button"><i class="fas fa-comments"></i></button>
+            <div id="chat-box">
+                <div class="chat-header">
+                    <h3>Live Chat</h3>
+                    <button id="close-chat"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="chat-body">
+                    <p>Hi! How can we help you today?</p>
+                </div>
+                <div class="chat-input">
+                    <input type="text" placeholder="Type a message...">
+                    <button><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>&copy; 2025 PawMatch. All rights reserved. 🐾</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+    
+    <script src="app.js"></script>
+</body>
+</html>
