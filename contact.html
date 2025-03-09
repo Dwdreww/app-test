@@ -3,95 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PawMatch - Contract Agreement</title>
+    <title>Contact Us - PawMatch</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Add futuristic fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-    <!-- Add FontAwesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Contact Page Specific Styles */
+        #contact-page,
+        #contact-info,
+        #contact-form,
+        .contact-details,
+        .form-group,
+        .submit-button {
+            text-align: center;
+        }
+
+        #contact-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 20px;
+        }
+
+        #contact-info, #contact-form {
+            width: 80%;
+            max-width: 800px;
+            margin-bottom: 30px;
+            padding: 30px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #contact-info h2, #contact-form h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00bfff;
+            margin-bottom: 20px;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            margin-right: 10px;
+            color: #00bfff;
+            font-size: 1.2em;
+        }
+
+        #contact-form form {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left; /* Override for labels */
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #eee;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #333;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #eee;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-button {
+            background-color: #00bfff;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .submit-button:hover {
+            background-color: #0099cc;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #contact-info, #contact-form {
+                width: 95%;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Contract Agreement - <span class="futuristic-text">PawMatch</span> 🚀🐾</h1>
-    </header>
-    
-    <main>
-        <!-- Contract Details -->
-        <section id="contract-details">
-            <div class="contract-content">
-                <h2>1. Agreement Between Parties</h2>
-                <p>This Agreement is made between <strong>Party 1 (The Adopter)</strong>, hereinafter referred to as "The First Party", and <strong>Party 2 (The Adoption Center)</strong>, hereinafter referred to as "The Second Party".</p>
-            </div>
+<header>
+    <h1>Welcome to <span class="futuristic-text">PawMatch</span> 🚀🐾</h1>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="adopt.html">Adopt</a></li>
+            <li><a href="donate.html">Donate</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
 
-            <div class="contract-content">
-                <h2>2. Purpose of the Agreement</h2>
-                <p>The purpose of this Agreement is to establish the terms under which the First Party agrees to adopt a pet from the Second Party.</p>
+<main id="contact-page">
+    <section id="contact-info">
+        <h2>Get in Touch</h2>
+        <p>We're here to help! Reach out to us with any questions or feedback.</p>
+        <div class="contact-details">
+            <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <p>De La Salle University Dasmariñas</p>
             </div>
-
-            <div class="contract-content">
-                <h2>3. Terms and Conditions</h2>
-                <p>The parties agree to the following terms and conditions:</p>
-                <ul>
-                    <li>The First Party will adopt the pet described in the adoption paperwork.</li>
-                    <li>The First Party agrees to provide proper care for the pet, including food, shelter, and medical attention when needed.</li>
-                    <li>The Second Party will provide the First Party with all necessary documentation and records regarding the pet's health and vaccination history.</li>
-                    <li>The Agreement will remain valid for the duration of the pet's life unless terminated by mutual consent.</li>
-                </ul>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <p>+63 9999 999 9999</p>
             </div>
-
-            <div class="contract-content">
-                <h2>4. Payment Terms</h2>
-                <p>The First Party agrees to pay a one-time adoption fee of <strong>$[Amount]</strong> to the Second Party upon signing this contract.</p>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <p>pawmatch@gmail.com</p>
             </div>
-
-            <div class="contract-content">
-                <h2>5. Termination Clause</h2>
-                <p>Either party may terminate this Agreement with written notice if the other party breaches any of the terms outlined herein. Upon termination, the First Party agrees to return the pet to the Second Party.</p>
-            </div>
-
-            <div class="contract-content">
-                <h2>6. Governing Law</h2>
-                <p>This Agreement shall be governed by the laws of [State/Country].</p>
-            </div>
-
-            <div class="contract-content">
-                <h2>7. Confidentiality</h2>
-                <p>Both parties agree to maintain confidentiality regarding any personal information shared during the adoption process, including financial and health records.</p>
-            </div>
-        </section>
-
-        <!-- Signatures Section -->
-        <section id="signatures">
-            <div class="signatures">
-                <div class="signature">
-                    <p>____________________________</p>
-                    <p class="signature-title">Signature of First Party (Adopter)</p>
-                    <p>Date: ___________________</p>
-                </div>
-                <div class="signature">
-                    <p>____________________________</p>
-                    <p class="signature-title">Signature of Second Party (Adoption Center)</p>
-                    <p>Date: ___________________</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Back to Dashboard Button -->
-        <div class="back-button-container">
-            <button onclick="window.location.href='dashboard.html'" class="back-button">Back to Dashboard</button>
         </div>
+    </section>
 
-    </main>
+    <section id="contact-form">
+        <h2>Send Us a Message</h2>
+        <form id="message-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Send Message <i class="fas fa-paper-plane"></i></button>
+        </form>
+    </section>
+</main>
 
-    <footer>
-        <p>&copy; 2025 PawMatch. All rights reserved. 🐾</p>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-        </div>
-    </footer>
-    
-    <script src="app.js"></script>
+<footer>
+    <p>&copy; 2025 PawMatch. All rights reserved. 🐾</p>
+    <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>
