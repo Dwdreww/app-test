@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adoption Messaging - PawMatch</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            color: #f8fafc;
+            line-height: 1.6;
+        }
+
+        .messaging-container {
+            max-width: 800px;
+            margin: 20px auto;
+            border: none;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            height: 80vh;
+            background: rgba(30, 41, 59, 0.9);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .messaging-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 15px 15px 0 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .pet-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .pet-thumbnail {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            object-fit: cover;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+        }
+
+        .pet-details h2 {
+            margin: 0;
+            font-size: 1.5rem;
+            color: #38bdf8;
+            text-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8;
+        }
+
+        .pet-type {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .message-thread {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            display: flex;
+            flex-direction: column;
+            max-width: 70%;
+        }
+
+        .message.sender {
+            align-self: flex-end;
+        }
+
+        .message.receiver {
+            align-self: flex-start;
+        }
+
+        .message-content {
+            padding: 12px 18px;
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .sender .message-content {
+            background: rgba(56, 189, 248, 0.2);
+            color: #f8fafc;
+        }
+
+        .receiver .message-content {
+            background: rgba(251, 191, 36, 0.2);
+            color: #f8fafc;
+        }
+
+        .timestamp {
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+        .message-input {
+            padding: 20px;
+            border-top: 1px solid rgba(56, 189, 248, 0.2);
+            background: rgba(30, 41, 59, 0.9);
+            border-radius: 0 0 15px 15px;
+        }
+
+        .input-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        textarea {
+            flex-grow: 1;
+            padding: 12px;
+            border-radius: 8px;
+            background: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            color: #f8fafc;
+            resize: none;
+            height: 40px;
+        }
+
+        .message-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .message-actions button {
+            background: rgba(56, 189, 248, 0.2);
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #38bdf8;
+            transition: all 0.3s ease;
+        }
+
+        .message-actions button:hover {
+            background: #38bdf8;
+            color: #0f172a;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+        }
+
+        .back-button {
+            position: absolute;
+            top: 18px;
+            left: 560px;
+            z-index: 10;
+        }
+        
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(56, 189, 248, 0.2);
+            border-radius: 30px;
+            color: #38bdf8;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+
+        .back-link:hover {
+            background: #38bdf8;
+            color: #0f172a;
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+        }
+
+        .back-link i {
+            font-size: 1.1rem;
+        }
+
+        /* Scrollbar styling */
+        .message-thread::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .message-thread::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .message-thread::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+            border-radius: 4px;
+        }
+
+        .message-thread::-webkit-scrollbar-thumb:hover {
+            background: #fbbf24;
+        }
+
+        .image-preview {
+            max-width: 200px;
+            max-height: 200px;
+            margin: 10px 0;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+        }
+
+        /* Animations */
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Add header styling to match dashboard */
+        header {
+            background: rgba(30, 41, 59, 0.9);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            color: #38bdf8;
+            margin: 0;
+            text-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><span class="futuristic-text">PawMatch</span> 🚀</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="adopt.html">Adopt</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="messaging-container">
+        <div class="back-button">
+            <a href="dashboard.html" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Dashboard</span>
+            </a>
+        </div>
+
+        <div class="messaging-header">
+            <div class="pet-info">
+                <img src="images/skuskta.jpg" alt="Pet Photo" class="pet-thumbnail">
+                <div class="pet-details">
+                    <h2>SKUSTA CLEE</h2>
+                    <span class="pet-type">OG RAPPER • HELP CENTER</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="message-thread" id="messageThread">
+            <!-- Messages will be dynamically added here -->
+        </div>
+
+        <div class="message-input">
+            <div class="input-container">
+                <textarea id="messageInput" placeholder="Type your message..."></textarea>
+                <div class="message-actions">
+                    <button class="attach-btn" onclick="document.getElementById('fileInput').click()">
+                        <i class="fas fa-paperclip"></i>
+                    </button>
+                    <button class="send-btn">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+                <input type="file" id="fileInput" style="display: none" accept="image/*" onchange="handleFileSelect(event)">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const messageText = document.getElementById('messageInput');
+            const sendButton = document.querySelector('.send-btn');
+            const messageThread = document.getElementById('messageThread');
+            const fileInput = document.getElementById('fileInput');
+
+            // Handle send button click
+            sendButton.addEventListener('click', sendMessage);
+
+            // Handle enter key press
+            messageText.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+
+            // Handle file input change
+            fileInput.addEventListener('change', handleFileSelect);
+
+            function sendMessage() {
+                const text = messageText.value.trim();
+                if (text) {
+                    const currentTime = new Date().toLocaleTimeString([], { 
+                        hour: '2-digit', 
+                        minute: '2-digit' 
+                    });
+
+                    const newMessage = `
+                        <div class="message sender">
+                            <div class="message-content">
+                                <p>${text}</p>
+                                <span class="timestamp">${currentTime}</span>
+                            </div>
+                        </div>
+                    `;
+
+                    messageThread.insertAdjacentHTML('beforeend', newMessage);
+                    messageText.value = '';
+                    scrollToBottom();
+
+                    // Simulate response after 1 second
+                    setTimeout(simulateResponse, 1000);
+                }
+            }
+
+            function simulateResponse() {
+                const responses = [
+                    "Kilala mo ba si SKUSTA CLEE?",
+                    "Ako'y lasing na kanina pa, 'Kala mo ba 'di ko napapansin na nakatitig ka sa 'king mata?",
+                    "Oh kalma baby kalma",
+                    "Pag nagpalagabog na si ate sobrang swabe ang salbahe",
+                    "Men I wanna see your booty go left cheek right cheek I wanna see your booty go"
+                ];
+
+                const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                const currentTime = new Date().toLocaleTimeString([], { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                });
+
+                const responseMessage = `
+                    <div class="message receiver">
+                        <div class="message-content">
+                            <p>${randomResponse}</p>
+                            <span class="timestamp">${currentTime}</span>
+                        </div>
+                    </div>
+                `;
+
+                messageThread.insertAdjacentHTML('beforeend', responseMessage);
+                scrollToBottom();
+            }
+
+            function handleFileSelect(event) {
+                const file = event.target.files[0];
+                if (file && file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const currentTime = new Date().toLocaleTimeString([], { 
+                            hour: '2-digit', 
+                            minute: '2-digit' 
+                        });
+
+                        const imageMessage = `
+                            <div class="message sender">
+                                <div class="message-content">
+                                    <img src="${e.target.result}" class="image-preview">
+                                    <span class="timestamp">${currentTime}</span>
+                                </div>
+                            </div>
+                        `;
+
+                        messageThread.insertAdjacentHTML('beforeend', imageMessage);
+                        scrollToBottom();
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+
+            function scrollToBottom() {
+                messageThread.scrollTop = messageThread.scrollHeight;
+            }
+        });
+    </script>
+</body>
+</html>
