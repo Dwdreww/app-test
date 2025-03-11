@@ -95,92 +95,9 @@
         <!-- Dashboard Content -->
         <section id="dashboard">
             <h2>Adoptable Pets</h2>
-            <!-- Layer 1 -->
-            <div class="pet-layer">
-                <div class="pet-card" onclick="openModal('modal1')">
-                    <img src="images/dog1.jpg" alt="Buddy">
-                    <h3>Buddy</h3>
-                    <p>Golden Retriever | 2 years</p>
-                    <span class="status available">Available</span>
-                </div>
-                <div class="pet-card" onclick="openModal('modal2')">
-                    <img src="images/cat1.jpg" alt="Whiskers">
-                    <h3>Whiskers</h3>
-                    <p>Siamese Cat | 1 year</p>
-                    <span class="status available">Available</span>
-                </div>
-                <div class="pet-card" onclick="openModal('modal3')">
-                    <img src="images/dog2.jpg" alt="Max">
-                    <h3>Max</h3>
-                    <p>German Shepherd | 3 years</p>
-                    <span class="status available">Available</span>
-                </div>
-            </div>
-
-            <!-- Layer 2 -->
-            <div class="pet-layer">
-                <div class="pet-card" onclick="openModal('modal4')">
-                    <img src="images/cat2.jpg" alt="Luna">
-                    <h3>Luna</h3>
-                    <p>Maine Coon | 2 years</p>
-                    <span class="status available">Available</span>
-                </div>
-                <div class="pet-card" onclick="openModal('modal5')">
-                    <img src="images/dog3.jpg" alt="Rocky">
-                    <h3>Rocky</h3>
-                    <p>Bulldog | 4 years</p>
-                    <span class="status available">Available</span>
-                </div>
-                <div class="pet-card" onclick="openModal('modal6')">
-                    <img src="images/cat3.jpg" alt="Milo">
-                    <h3>Milo</h3>
-                    <p>Bengal Cat | 1.5 years</p>
-                    <span class="status available">Available</span>
-                </div>
-            </div>
-
-            <!-- Layer 3 -->
-            <div class="pet-layer">
-                <div class="pet-card" onclick="openModal('modal7')">
-                    <img src="images/dog4.jpg" alt="Daisy">
-                    <h3>Daisy</h3>
-                    <p>Labrador Retriever | 2 years</p>
-                    <span class="status available">Available</span>
-                </div>
-                <div class="pet-card" onclick="openModal('modal8')">
-                    <img src="images/cat4.jpg" alt="Bella">
-                    <h3>Bella</h3>
-                    <p>Persian Cat | 2 years</p>
-                    <span class="status available">Available</span>
-                </div>
-                <div class="pet-card" onclick="openModal('modal9')">
-                    <img src="images/dog5.jpg" alt="Charlie">
-                    <h3>Charlie</h3>
-                    <p>Beagle | 3 years</p>
-                    <span class="status available">Available</span>
-                </div>
-            </div>
-
-            <!-- Layer 4 -->
-            <div class="pet-layer">
-                <div class="pet-card" onclick="openModal('modal10')">
-                    <img src="images/cat5.jpg" alt="Oliver">
-                    <h3>Oliver</h3>
-                    <p>Ragdoll Cat | 1 year</p>
-                    <span class="status available">Available</span>
-                </div>
-                <div class="pet-card" onclick="openModal('modal11')">
-                    <img src="images/dog6.jpg" alt="Lucy">
-                    <h3>Lucy</h3>
-                    <p>Poodle | 2 years</p>
-                    <span class="status available">Available</span>
-                </div>
-                <div class="pet-card" onclick="openModal('modal12')">
-                    <img src="images/cat6.jpg" alt="Leo">
-                    <h3>Leo</h3>
-                    <p>Sphynx Cat | 1 year</p>
-                    <span class="status available">Available</span>
-                </div>
+            
+            <div class="pet-layers-container">
+                <!-- Pet layers will be dynamically populated here -->
             </div>
         </section>
     </main>
@@ -230,117 +147,117 @@
     <div id="modal4" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal4')">&times;</span>
-            <img src="images/cat2.jpg" alt="Max">
-            <h2>Max</h2>
-            <p><strong>Breed:</strong> German Shepherd</p>
-            <p><strong>Age:</strong> 3 years</p>
-            <p><strong>Temperament:</strong> Loyal, protective, and highly trainable.</p>
+            <img src="images/cat2.jpg" alt="Luna">
+            <h2>Luna</h2>
+            <p><strong>Breed:</strong> Maine Coon</p>
+            <p><strong>Age:</strong> 2 years</p>
+            <p><strong>Temperament:</strong> Gentle giant, affectionate, and great with families.</p>
             <p><strong>Adoption Status:</strong> <span class="status available">Available</span></p>
-            <button onclick="window.location.href='contract.html?pet=Buddy'">Adopt Me!</button>
+            <button onclick="window.location.href='contract.html?pet=Luna'">Adopt Me!</button>
         </div>
     </div>
 
     <div id="modal5" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal5')">&times;</span>
-            <img src="images/dog3.jpg" alt="Max">
-            <h2>Max</h2>
-            <p><strong>Breed:</strong> German Shepherd</p>
-            <p><strong>Age:</strong> 3 years</p>
-            <p><strong>Temperament:</strong> Loyal, protective, and highly trainable.</p>
+            <img src="images/dog3.jpg" alt="Rocky">
+            <h2>Rocky</h2>
+            <p><strong>Breed:</strong> Bulldog</p>
+            <p><strong>Age:</strong> 4 years</p>
+            <p><strong>Temperament:</strong> Calm, friendly, and loves to cuddle.</p>
             <p><strong>Adoption Status:</strong> <span class="status available">Available</span></p>
-            <button onclick="window.location.href='contract.html?pet=Buddy'">Adopt Me!</button>
+            <button onclick="window.location.href='contract.html?pet=Rocky'">Adopt Me!</button>
         </div>
     </div>
 
     <div id="modal6" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal6')">&times;</span>
-            <img src="images/cat3.jpg" alt="Max">
-            <h2>Max</h2>
-            <p><strong>Breed:</strong> German Shepherd</p>
-            <p><strong>Age:</strong> 3 years</p>
-            <p><strong>Temperament:</strong> Loyal, protective, and highly trainable.</p>
+            <img src="images/cat3.jpg" alt="Milo">
+            <h2>Milo</h2>
+            <p><strong>Breed:</strong> Bengal Cat</p>
+            <p><strong>Age:</strong> 2 years</p>
+            <p><strong>Temperament:</strong> Energetic, playful, and very intelligent.</p>
             <p><strong>Adoption Status:</strong> <span class="status available">Available</span></p>
-            <button onclick="window.location.href='contract.html?pet=Buddy'">Adopt Me!</button>
+            <button onclick="window.location.href='contract.html?pet=Milo'">Adopt Me!</button>
         </div>
     </div>
 
     <div id="modal7" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal7')">&times;</span>
-            <img src="images/dog4.jpg" alt="Max">
-            <h2>Max</h2>
-            <p><strong>Breed:</strong> German Shepherd</p>
-            <p><strong>Age:</strong> 3 years</p>
-            <p><strong>Temperament:</strong> Loyal, protective, and highly trainable.</p>
+            <img src="images/dog4.jpg" alt="Daisy">
+            <h2>Daisy</h2>
+            <p><strong>Breed:</strong> Labrador Retriever</p>
+            <p><strong>Age:</strong> 2 years</p>
+            <p><strong>Temperament:</strong> Sweet, gentle, and excellent with children.</p>
             <p><strong>Adoption Status:</strong> <span class="status available">Available</span></p>
-            <button onclick="window.location.href='contract.html?pet=Buddy'">Adopt Me!</button>
+            <button onclick="window.location.href='contract.html?pet=Daisy'">Adopt Me!</button>
         </div>
     </div>
 
     <div id="modal8" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal8')">&times;</span>
-            <img src="images/cat4.jpg" alt="Max">
-            <h2>Max</h2>
-            <p><strong>Breed:</strong> German Shepherd</p>
-            <p><strong>Age:</strong> 3 years</p>
-            <p><strong>Temperament:</strong> Loyal, protective, and highly trainable.</p>
+            <img src="images/cat4.jpg" alt="Bella">
+            <h2>Bella</h2>
+            <p><strong>Breed:</strong> Persian Cat</p>
+            <p><strong>Age:</strong> 2 years</p>
+            <p><strong>Temperament:</strong> Calm, elegant, and loves attention.</p>
             <p><strong>Adoption Status:</strong> <span class="status available">Available</span></p>
-            <button onclick="window.location.href='contract.html?pet=Buddy'">Adopt Me!</button>
+            <button onclick="window.location.href='contract.html?pet=Bella'">Adopt Me!</button>
         </div>
     </div>
 
     <div id="modal9" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal9')">&times;</span>
-            <img src="images/dog5.jpg" alt="Max">
-            <h2>Max</h2>
-            <p><strong>Breed:</strong> German Shepherd</p>
+            <img src="images/dog5.jpg" alt="Charlie">
+            <h2>Charlie</h2>
+            <p><strong>Breed:</strong> Beagle</p>
             <p><strong>Age:</strong> 3 years</p>
-            <p><strong>Temperament:</strong> Loyal, protective, and highly trainable.</p>
+            <p><strong>Temperament:</strong> Friendly, curious, and great with other dogs.</p>
             <p><strong>Adoption Status:</strong> <span class="status available">Available</span></p>
-            <button onclick="window.location.href='contract.html?pet=Buddy'">Adopt Me!</button>
+            <button onclick="window.location.href='contract.html?pet=Charlie'">Adopt Me!</button>
         </div>
     </div>
 
     <div id="modal10" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal10')">&times;</span>
-            <img src="images/cat5.jpg" alt="Max">
-            <h2>Max</h2>
-            <p><strong>Breed:</strong> German Shepherd</p>
-            <p><strong>Age:</strong> 3 years</p>
-            <p><strong>Temperament:</strong> Loyal, protective, and highly trainable.</p>
+            <img src="images/cat5.jpg" alt="Oliver">
+            <h2>Oliver</h2>
+            <p><strong>Breed:</strong> Ragdoll Cat</p>
+            <p><strong>Age:</strong> 1 year</p>
+            <p><strong>Temperament:</strong> Relaxed, affectionate, and follows you everywhere.</p>
             <p><strong>Adoption Status:</strong> <span class="status available">Available</span></p>
-            <button onclick="window.location.href='contract.html?pet=Buddy'">Adopt Me!</button>
+            <button onclick="window.location.href='contract.html?pet=Oliver'">Adopt Me!</button>
         </div>
     </div>
 
     <div id="modal11" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal11')">&times;</span>
-            <img src="images/dog6.jpg" alt="Max">
-            <h2>Max</h2>
-            <p><strong>Breed:</strong> German Shepherd</p>
-            <p><strong>Age:</strong> 3 years</p>
-            <p><strong>Temperament:</strong> Loyal, protective, and highly trainable.</p>
+            <img src="images/dog6.jpg" alt="Lucy">
+            <h2>Lucy</h2>
+            <p><strong>Breed:</strong> Poodle</p>
+            <p><strong>Age:</strong> 2 years</p>
+            <p><strong>Temperament:</strong> Smart, elegant, and very trainable.</p>
             <p><strong>Adoption Status:</strong> <span class="status available">Available</span></p>
-            <button onclick="window.location.href='contract.html?pet=Buddy'">Adopt Me!</button>
+            <button onclick="window.location.href='contract.html?pet=Lucy'">Adopt Me!</button>
         </div>
     </div>
 
     <div id="modal12" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modal12')">&times;</span>
-            <img src="images/cat6.jpg" alt="Max">
-            <h2>Max</h2>
-            <p><strong>Breed:</strong> German Shepherd</p>
-            <p><strong>Age:</strong> 3 years</p>
-            <p><strong>Temperament:</strong> Loyal, protective, and highly trainable.</p>
+            <img src="images/cat6.jpg" alt="Leo">
+            <h2>Leo</h2>
+            <p><strong>Breed:</strong> Sphynx Cat</p>
+            <p><strong>Age:</strong> 1 year</p>
+            <p><strong>Temperament:</strong> Energetic, loving, and very social.</p>
             <p><strong>Adoption Status:</strong> <span class="status available">Available</span></p>
-            <button onclick="window.location.href='contract.html?pet=Buddy'">Adopt Me!</button>
+            <button onclick="window.location.href='contract.html?pet=Leo'">Adopt Me!</button>
         </div>
     </div>
 

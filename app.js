@@ -87,81 +87,83 @@ const pets = [
         breed: "Bengal Cat",
         age: 2,
         size: "medium",
-        temperament: "Curious, affectionate, and loves to cuddle.",
+        temperament: "Energetic, playful, and very intelligent",
         image: "images/cat3.jpg",
         modal: "modal6",
     },
     {
-        name: "Buddy",
-        breed: "Golden Retriever",
+        name: "Daisy",
+        breed: "Labrador Retriever",
         age: 2,
         size: "Large",
-        temperament: "Friendly, playful, and great with kids.",
-        image: "images/dog1.jpg",
-        modal: "modal1",
+        temperament: "Sweet, gentle, and excellent with children.",
+        image: "images/dog4.jpg",
+        modal: "modal7",
     },
     {
-        name: "Whiskers",
-        breed: "Siamese Cat",
+        name: "Bella",
+        breed: "Persian Cat",
+        age: 2,
+        size: "Small",
+        temperament: "Calm, elegant, and loves attention.",
+        image: "images/cat4.jpg",
+        modal: "modal8",
+    },
+    {
+        name: "Charlie",
+        breed: "Beagle",
+        age: 3,
+        size: "small",
+        temperament: "Friendly, curious, and great with other dogs.",
+        image: "images/dog5.jpg",
+        modal: "modal9",
+    },
+    {
+        name: "Oliver",
+        breed: "Ragdoll Cat",
         age: 1,
         size: "Small",
-        temperament: "Curious, affectionate, and loves to cuddle.",
-        image: "images/cat1.jpg",
-        modal: "modal2",
+        temperament: "Relaxed, affectionate, and follows you everywhere.",
+        image: "images/cat5.jpg",
+        modal: "modal10",
     },
     {
-        name: "Max",
-        breed: "German Shepherd",
-        age: 3,
-        size: "Large",
-        temperament: "Loyal, protective, and highly trainable.",
-        image: "images/dog2.jpg",
-        modal: "modal3",
-    },
-    {
-        name: "Luna",
-        breed: "Maine Coon",
-        age: 2,
-        size: "Large",
-        temperament: "Friendly, playful, and great with kids.",
-        image: "images/cat2.jpg",
-        modal: "modal4",
-    },
-    {
-        name: "Rocky",
-        breed: "Bulldog",
-        age: 4,
-        size: "medium",
-        temperament: "Curious, affectionate, and loves to cuddle.",
-        image: "images/dog3.jpg",
-        modal: "modal5",
-    },
-    {
-        name: "Milo",
-        breed: "Bengal Cat",
+        name: "Lucy",
+        breed: "Poodle",
         age: 2,
         size: "medium",
-        temperament: "Curious, affectionate, and loves to cuddle.",
-        image: "images/cat3.jpg",
-        modal: "modal6",
+        temperament: "Smart, elegant, and very trainable.",
+        image: "images/dog6.jpg",
+        modal: "modal11",
+    },
+    {
+        name: "Leo",
+        breed: "Sphynx Cat",
+        age: 2,
+        size: "medium",
+        temperament: "Energetic, loving, and very social.",
+        image: "images/cat6.jpg",
+        modal: "modal12",
     },
     
     // Add data for the remaining 9 pets
 ];
 
-// Function to render pet cards
-function renderPets(filteredPets) {
-    const petGrid = document.querySelector('.pet-layer');
-    petGrid.innerHTML = ""; // Clear existing cards
+
+
+// Function to filter pets
+function renderPetsInLayers(pets) {
+    const mainContainer = document.querySelector('.pet-layers-container');
+    mainContainer.innerHTML = ""; // Clear existing layers
 
     // Group pets into layers of 3
-    for (let i = 0; i < filteredPets.length; i += 3) {
+    for (let i = 0; i < pets.length; i += 3) {
         const petLayer = document.createElement('div');
         petLayer.className = 'pet-layer'; // Create a new layer
 
         // Create pet cards for each pet in the current layer
-        for (let j = i; j < i + 3 && j < filteredPets.length; j++) {
-            const pet = filteredPets[j];
+        for (let j = i; j < i + 3 && j < pets.length; j++) {
+            const pet = pets[j];
             const petCard = document.createElement('div');
             petCard.className = "pet-card";
             petCard.setAttribute('onclick', `openModal('${pet.modal}')`);
@@ -174,11 +176,11 @@ function renderPets(filteredPets) {
             petLayer.appendChild(petCard); // Add the pet card to the layer
         }
 
-        petGrid.appendChild(petLayer); // Add the layer to the grid
+        mainContainer.appendChild(petLayer); // Add the layer to the main container
     }
 }
 
-// Function to filter pets
+// Add event listeners for search and filters
 function filterPets() {
     const searchText = document.getElementById('search-input').value.toLowerCase();
     const breedFilter = document.getElementById('breed-filter').value;
@@ -198,13 +200,11 @@ function filterPets() {
         );
     });
 
-    renderPets(filteredPets);
+    renderPetsInLayers(filteredPets);
 }
 
-// Add event listeners for search and filters
 document.addEventListener('DOMContentLoaded', function () {
-    renderPets(pets); // Render all pets initially
-
+    renderPetsInLayers(pets);
     document.getElementById('search-button').addEventListener('click', filterPets);
     document.getElementById('search-input').addEventListener('input', filterPets);
     document.getElementById('breed-filter').addEventListener('change', filterPets);

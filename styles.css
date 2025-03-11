@@ -808,6 +808,10 @@ nav a:hover {
     text-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8;
 }
 
+.pet-layers-container {
+    padding: 20px;
+}
+
 .pet-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
