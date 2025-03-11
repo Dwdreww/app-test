@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - PawMatch</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ... (your existing styles) ... */
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Align content to the top */
+        }
+
+        #donate-page {
+            text-align: center;
+        }
+
+        #donate-hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center; /* Center text within the hero section */
+            padding: 20px;
+            width: 100%; /* Ensure it spans the full width */
+        }
+
+        .donate-hero-content {
+            max-width: 600px;
+            margin: 0 auto; /* Center the content block */
+        }
+
+        .donate-hero-content h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: #00bfff;
+            margin-bottom: 20px;
+        }
+
+        .donate-buttons button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .donate-buttons .one-off {
+            background-color: #e74c3c; /* Red */
+            color: white;
+        }
+
+        .donate-buttons .regular {
+            background-color: #3498db; /* Blue */
+            color: white;
+        }
+
+        .donate-hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        #donate-options {
+            width: 100%; /* Ensure it spans the full width */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .donate-paypal {
+            max-width: 800px;
+            width: 100%; /* Ensure it spans the full width */
+            text-align: center; /* Center the content */
+        }
+
+        .php-donate, .usd-donate {
+            display: block;
+            margin: 10px auto; /* Center the buttons */
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            width: fit-content; /* Adjust width to content */
+        }
+
+        .paypal-donate {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px auto; /* Center the PayPal section */
+            width: fit-content; /* Adjust width to content */
+        }
+
+        .paypal-donate h3 {
+            margin-bottom: 10px;
+        }
+
+        .paypal-logo {
+            max-width: 100px;
+            margin-bottom: 10px;
+        }
+
+        .paypal-button {
+            padding: 10px 20px;
+            background-color: #ffc107; /* Yellow */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .payment-icons img {
+            max-height: 30px;
+            margin: 0 5px;
+        }
+
+        #donation-tiers {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 20px;
+            width: 100%; /* Ensure it spans the full width */
+        }
+
+        .donation-tier {
+            width: 200px;
+            margin: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center text in donation tiers */
+        }
+
+        .donation-tier h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1><span class="futuristic-text">PawMatch</span> 🚀🐾</h1>
+        <nav>
+            <ul>
+                <li><a href="dashboard.html">Home</a></li>
+                <li><a href="adopt.html">Adopt</a></li>
+                <li><a href="donate.html">Donate</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="donate-page">
+        <section id="donate-hero">
+            <div class="donate-hero-content">
+                <h2>Donate</h2>
+                <p>Help us fight cruelty and protect all animals by making a donation.</p>
+                <div class="donate-buttons">
+                    <button class="one-off">ONE OFF DONATION</button>
+                    <button class="regular">REGULAR DONATION</button>
+                </div>
+            </div>
+            
+        </section>
+
+        <section id="donate-options">
+            <div class="donate-paypal">
+                <a href="#" class="php-donate">TO DONATE IN PHP PLEASE CLICK HERE</a>
+                <div class="paypal-donate">
+                    <h3>Donate via Paypal</h3>
+                    <img src="images/paypal-logo.png" alt="Paypal Logo" class="paypal-logo">
+                    <button class="paypal-button">Donate</button>
+                    <div class="payment-icons">
+                        <img src="images/Gcash.png" alt="Visa Logo">
+                        <img src="images/paymaya.png" alt="Mastercard Logo">
+                    </div>
+                </div>
+                <a href="#" class="usd-donate">TO DONATE IN US DOLLARS CLICK HERE</a>
+            </div>
+        </section>
+
+        <section id="donation-tiers">
+            <div class="donation-tier">
+                <h3>$6</h3>
+                <p>Will feed one IWCT resident dog for a week</p>
+            </div>
+            <div class="donation-tier">
+                <h3>$18</h3>
+                <p>Will provide the 5 in 1 vaccine for one dog</p>
+            </div>
+            <div class="donation-tier">
+                <h3>$25</h3>
+                <p>Will enable an IWCT vet to neuter one dog</p>
+            </div>
+            <div class="donation-tier">
+                <h3>$350</h3>
+                <p>Will cover the cost of the rescue, rehabilitation and re-homing of one dog</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 PawMatch. All rights reserved. 🐾</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
