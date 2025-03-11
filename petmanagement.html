@@ -64,11 +64,41 @@
             border-radius: 15px;
             position: relative;
             transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 20px;
         }
 
         .pet-management-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+
+        .pet-management-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .pet-management-card h3 {
+            color: #fbbf24;
+            margin: 10px 0;
+            font-size: 1.5rem;
+        }
+
+        .pet-management-card p {
+            color: #94a3b8;
+            margin: 5px 0;
+        }
+
+        .pet-management-card .description {
+            color: #94a3b8;
+            font-style: italic;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 8px;
+            min-height: 60px;
         }
 
         .status-toggle {
@@ -83,7 +113,15 @@
             color: #38bdf8;
         }
 
+        .edit-controls {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            gap: 10px;
+        }
+
         .edit-controls button {
+            flex: 1;
             background: rgba(15, 23, 42, 0.8);
             border: 1px solid rgba(56, 189, 248, 0.3);
             color: #38bdf8;
@@ -91,6 +129,10 @@
             border-radius: 8px;
             cursor: pointer;
             transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
         }
 
         .edit-controls button:hover {
@@ -98,6 +140,10 @@
             color: #0f172a;
             transform: translateY(-2px);
             box-shadow: 0 0 15px rgba(56, 189, 248, 0.5);
+        }
+
+        .edit-controls button i {
+            font-size: 1.1rem;
         }
 
         .add-pet-btn {
@@ -259,9 +305,108 @@
                 breed: "Golden Retriever",
                 age: 2,
                 status: "available",
-                image: "images/dog1.jpg"
+                image: "images/dog1.jpg",
+                description: "Friendly, playful, and great with kids."
             },
-            // Add more pets here
+            {
+                name: "Whiskers",
+                species: "Cat",
+                breed: "Siamese Cat",
+                age: 1,
+                status: "available",
+                image: "images/cat1.jpg",
+                description: "Curious, affectionate, and loves to cuddle."
+            },
+            {
+                name: "Max",
+                species: "Dog",
+                breed: "German Shepherd",
+                age: 3,
+                status: "available",
+                image: "images/dog2.jpg",
+                description: "Loyal, protective, and highly trainable."
+            },
+            {
+                name: "Luna",
+                species: "Cat",
+                breed: "Maine Coon",
+                age: 2,
+                status: "available",
+                image: "images/cat2.jpg",
+                description: "Gentle giant, friendly, and great with families."
+            },
+            {
+                name: "Rocky",
+                species: "Dog",
+                breed: "Bulldog",
+                age: 4,
+                status: "available",
+                image: "images/dog3.jpg",
+                description: "Strong, determined, and loving companion."
+            },
+            {
+                name: "Milo",
+                species: "Cat",
+                breed: "Bengal Cat",
+                age: 1.5,
+                status: "available",
+                image: "images/cat3.jpg",
+                description: "Energetic, intelligent, and very active."
+            },
+            {
+                name: "Daisy",
+                species: "Dog",
+                breed: "Labrador Retriever",
+                age: 2,
+                status: "available",
+                image: "images/dog4.jpg",
+                description: "Sweet, gentle, and excellent with children."
+            },
+            {
+                name: "Bella",
+                species: "Cat",
+                breed: "Persian Cat",
+                age: 2,
+                status: "available",
+                image: "images/cat4.jpg",
+                description: "Calm, quiet, and loves to be pampered."
+            },
+            {
+                name: "Charlie",
+                species: "Dog",
+                breed: "Beagle",
+                age: 3,
+                status: "available",
+                image: "images/dog5.jpg",
+                description: "Curious, merry, and friendly."
+            },
+            {
+                name: "Oliver",
+                species: "Cat",
+                breed: "Ragdoll Cat",
+                age: 1,
+                status: "available",
+                image: "images/cat5.jpg",
+                description: "Relaxed, affectionate, and good with other pets."
+            },
+            {
+                name: "Lucy",
+                species: "Dog",
+                breed: "Poodle",
+                age: 2,
+                status: "available",
+                image: "images/dog6.jpg",
+                description: "Intelligent, elegant, and easy to train."
+            },
+            {
+                name: "Leo",
+                species: "Cat",
+                breed: "Sphynx Cat",
+                age: 1,
+                status: "available",
+                image: "images/cat6.jpg",
+                description: "Energetic, loving, and very social."
+            }
         ];
 
         function showNotification(message, type = 'success') {
@@ -283,6 +428,7 @@
                     <img src="${pet.image}" alt="${pet.name}">
                     <h3>${pet.name}</h3>
                     <p>${pet.breed} • ${pet.age} years</p>
+                    <p class="description">${pet.description}</p>
                     <div class="edit-controls">
                         <button class="edit-btn" onclick="editPet('${pet.name}')">
                             <i class="fas fa-edit"></i> Edit
@@ -317,6 +463,7 @@
                 
                 const inputs = form.getElementsByTagName('input');
                 const select = form.getElementsByTagName('select')[0];
+                const textarea = form.getElementsByTagName('textarea')[0];
                 
                 const newPetName = inputs[0].value;
                 
@@ -327,7 +474,8 @@
                     breed: inputs[1].value,
                     age: parseInt(inputs[2].value),
                     status: 'available',
-                    image: 'images/default-pet.jpg' // You might want to handle image upload separately
+                    image: 'images/default-pet.jpg',
+                    description: textarea.value
                 });
                 
                 // Re-render the pets grid
@@ -352,11 +500,13 @@
             const form = document.getElementById('addPetForm');
             const inputs = form.getElementsByTagName('input');
             const select = form.getElementsByTagName('select')[0];
+            const textarea = form.getElementsByTagName('textarea')[0];
 
             inputs[0].value = pet.name;
             select.value = pet.species.toLowerCase();
             inputs[1].value = pet.breed;
             inputs[2].value = pet.age;
+            textarea.value = pet.description;
             
             // Show the modal
             document.getElementById('addPetModal').style.display = 'flex';
@@ -370,6 +520,7 @@
                 pet.species = select.value;
                 pet.breed = inputs[1].value;
                 pet.age = parseInt(inputs[2].value);
+                pet.description = textarea.value;
                 
                 // Re-render the pets grid
                 renderPets();
