@@ -122,6 +122,35 @@
             box-shadow: 0 0 20px rgba(251, 191, 36, 0.5);
         }
 
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 500;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .notification.success {
+            background: rgba(34, 197, 94, 0.9);
+            box-shadow: 0 0 15px rgba(34, 197, 94, 0.3);
+        }
+
+        .notification.error {
+            background: rgba(239, 68, 68, 0.9);
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         #addPetModal .modal-content {
             background: rgba(30, 41, 59, 0.95);
             padding: 30px;
@@ -198,6 +227,9 @@
         </button>
     </div>
 
+    <!-- Notification Element -->
+    <div id="notification" class="notification"></div>
+
     <!-- Add Pet Modal -->
     <div id="addPetModal" class="modal">
         <div class="modal-content">
@@ -232,6 +264,17 @@
             // Add more pets here
         ];
 
+        function showNotification(message, type = 'success') {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.className = `notification ${type} show`;
+            
+            // Hide notification after 3 seconds
+            setTimeout(() => {
+                notification.className = 'notification';
+            }, 3000);
+        }
+
         function renderPets() {
             const grid = document.getElementById('petGrid');
             grid.innerHTML = pets.map(pet => `
@@ -252,12 +295,103 @@
             `).join('');
         }
 
+        function deletePet(petName) {
+            if (confirm(`Are you sure you want to delete ${petName}?`)) {
+                const index = pets.findIndex(p => p.name === petName);
+                if (index !== -1) {
+                    pets.splice(index, 1);
+                    renderPets();
+                    showNotification(`${petName} has been successfully deleted`);
+                }
+            }
+        }
+
         function openAddPetModal() {
+            const form = document.getElementById('addPetForm');
+            form.reset(); // Clear the form
             document.getElementById('addPetModal').style.display = 'flex';
+            
+            // Reset the form submission handler for adding new pet
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                
+                const inputs = form.getElementsByTagName('input');
+                const select = form.getElementsByTagName('select')[0];
+                
+                const newPetName = inputs[0].value;
+                
+                // Add new pet
+                pets.push({
+                    name: newPetName,
+                    species: select.value,
+                    breed: inputs[1].value,
+                    age: parseInt(inputs[2].value),
+                    status: 'available',
+                    image: 'images/default-pet.jpg' // You might want to handle image upload separately
+                });
+                
+                // Re-render the pets grid
+                renderPets();
+                
+                // Show success notification
+                showNotification(`${newPetName} has been successfully added`);
+                
+                // Close the modal
+                closeAddPetModal();
+            };
+        }
+
+        function editPet(petName) {
+            const pet = pets.find(p => p.name === petName);
+            if (!pet) return;
+
+            // Store original name for notification
+            const originalName = pet.name;
+
+            // Populate the modal with pet data
+            const form = document.getElementById('addPetForm');
+            const inputs = form.getElementsByTagName('input');
+            const select = form.getElementsByTagName('select')[0];
+
+            inputs[0].value = pet.name;
+            select.value = pet.species.toLowerCase();
+            inputs[1].value = pet.breed;
+            inputs[2].value = pet.age;
+            
+            // Show the modal
+            document.getElementById('addPetModal').style.display = 'flex';
+            
+            // Update the form submission handler for editing
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                
+                // Update the pet data
+                pet.name = inputs[0].value;
+                pet.species = select.value;
+                pet.breed = inputs[1].value;
+                pet.age = parseInt(inputs[2].value);
+                
+                // Re-render the pets grid
+                renderPets();
+                
+                // Show success notification
+                showNotification(`${originalName} has been successfully updated`);
+                
+                // Close the modal
+                closeAddPetModal();
+            };
         }
 
         function closeAddPetModal() {
             document.getElementById('addPetModal').style.display = 'none';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('addPetModal');
+            if (event.target === modal) {
+                closeAddPetModal();
+            }
         }
 
         // Initialize the page
