@@ -65,12 +65,12 @@ const pets = [
         modal: "modal3",
     },
     {
-        name: "Luna",
-        breed: "Maine Coon",
-        age: 2,
-        size: "Large",
-        temperament: "Friendly, playful, and great with kids.",
-        image: "images/cat2.jpg",
+        name: "Blossom Marie",
+        breed: "Japanese spitz",
+        age: 7,
+        size: "small",
+        temperament: "Gentle dog, affectionate, and great with families.",
+        image: "images/dog7.jpg",
         modal: "modal4",
     },
     {
