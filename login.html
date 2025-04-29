@@ -31,16 +31,16 @@
                 <form id="login-form">
                     <div class="input-group">
                         <i class="fas fa-user"></i>
-                        <input type="text" id="username" placeholder="Username" required>
+                        <input type="text" id="login-username" placeholder="Username" required>
                     </div>
                     <div class="input-group">
                         <i class="fas fa-lock"></i>
-                        <input type="password" id="password" placeholder="Password" required>
+                        <input type="password" id="login-password" placeholder="Password" required>
                     </div>
                     <button type="submit">Login <i class="fas fa-arrow-right"></i></button>
                 </form>
+                <div id="login-message"></div> <!-- Message div for feedback -->
                 <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
-                <div id="login-message"></div>
             </div>
         </section>
     </main>
@@ -54,6 +54,6 @@
         </div>
     </footer>
 
-    <script src="login.js"></script>
+    <script src="auth.js"></script>
 </body>
 </html>
