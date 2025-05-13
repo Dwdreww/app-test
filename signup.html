@@ -4,98 +4,133 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Account</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
+        #signup {
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
         }
-        .container {
-            background: #ffffff;
-            padding: 20px 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        .signup-box {
+            background: rgba(30, 41, 59, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+            text-align: center;
             width: 100%;
             max-width: 400px;
+            animation: fadeIn 1.5s ease-in-out;
         }
-        h1 {
-            text-align: center;
-            color: #333;
+
+        .signup-box h2 {
+            font-size: 2rem;
+            color: #38bdf8;
             margin-bottom: 20px;
+            text-shadow: 0 0 10px #38bdf8, 0 0 20px #38bdf8;
         }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            color: #555;
-        }
-        input {
-            width: 100%;
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background: rgba(15, 23, 42, 0.8);
             padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 14px;
+            border-radius: 10px;
+            border: 1px solid #38bdf8;
         }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
+
+        .input-group i {
+            font-size: 1.2rem;
+            color: #38bdf8;
+            margin-right: 10px;
+        }
+
+        .input-group input {
+            flex: 1;
+            background: transparent;
             border: none;
-            border-radius: 4px;
-            font-size: 16px;
+            color: #f8fafc;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .input-group input::placeholder {
+            color: #94a3b8;
+        }
+
+        .signup-box button {
+            background: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border-radius: 30px;
             cursor: pointer;
+            transition: 0.3s ease-in-out;
+            width: 100%;
+            margin-top: 10px;
         }
-        button:hover {
-            background-color: #45a049;
+
+        .signup-box button:hover {
+            background: #fbbf24;
+            transform: scale(1.05);
         }
-        .login-link {
-            text-align: center;
-            margin-top: 15px;
+
+        .signup-box p {
+            margin-top: 20px;
+            color: #94a3b8;
         }
-        .login-link a {
-            color: #4CAF50;
+
+        .signup-box a {
+            color: #38bdf8;
             text-decoration: none;
+            transition: color 0.3s;
         }
-        .login-link a:hover {
-            text-decoration: underline;
+
+        .signup-box a:hover {
+            color: #fbbf24;
+        }
+
+        #signup-message {
+            margin-top: 20px;
+            color: #fbbf24;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Create Account</h1>
-        <form id="signup-form">
-            <div class="form-group">
-                <label for="signup-username">Username</label>
-                <input type="text" id="signup-username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="signup-email">Email</label>
-                <input type="email" id="signup-email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="signup-password">Password</label>
-                <input type="password" id="signup-password" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="signup-confirm-password">Confirm Password</label>
-                <input type="password" id="signup-confirm-password" name="confirm-password" required>
-            </div>
-            <button type="submit">Sign Up</button>
-        </form>
-        <div id="signup-message"></div> <!-- Message div for feedback -->
-        <div class="login-link">
+    <div id="signup">
+        <div class="signup-box">
+            <h2>Create Account</h2>
+            <form id="signup-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="signup-username" name="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="signup-email" name="email" placeholder="Email" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="signup-password" name="password" placeholder="Password" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="signup-confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div id="signup-message"></div>
             <p>Already have an account? <a href="login.html">Log in</a></p>
         </div>
     </div>
-    <script src="auth.js"></script> <!-- Include your JavaScript file for handling signup -->
+    <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+    <script src="auth.js"></script>
 </body>
-</html></div>
+</html>
